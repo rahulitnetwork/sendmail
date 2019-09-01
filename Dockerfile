@@ -10,9 +10,10 @@ RUN apt-get install -y python-pip
 RUN apt-get clean all
 RUN pip install xlrd
 RUN pip install python-multipart
-RUN mkdir /app
-ADD . /app/
-WORKDIR	/app/
+RUN apt install git -y
+RUN git clone https://github.com/rahulitnetwork/sendmail.git
+WORKDIR	sendmail/
+
 # Command to update and install Apache packages
 #RUN apt-get update && apt-get install -y software=properties-common && apt-get-repository ppa:ondrej/php && apt-get update
 #ARG DEBIAN_FRONTEND=noninteractive
